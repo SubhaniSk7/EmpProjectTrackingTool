@@ -46,7 +46,7 @@
 			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
 				<div class="panel panel-info dashboard-cell">
 					<div class="panel-heading text-center">
-						<h3 class="panel-title ">Subhani</h3>
+						<h3 class="panel-title" id="profileEmployerName" val="">Name</h3>
 					</div>
 					<div class="panel-body">
 <!-- 						<div class="row"> -->
@@ -55,64 +55,70 @@
 								<table class="table table table-striped table table-hover">
 									<tbody>
 										<tr>
-											<td>Emp Id:</td>
-											<td>AL184</td>
-										</tr>
-										<tr>
-											<td>Department:</td>
-											<td>Developement</td>
-										</tr>
-										<tr>
-											<td>Designation:</td>
-											<td>Sr.Developer</td>
-										</tr>
-										<tr>
-											<td>Status:</td>
-											<td>Active</td>
+											<th>Emp Id:</th>
+											<td id="profileEmpId">AL184</td>
 										</tr>
 										
 										<tr>
-											<td>Marital Status</td>
-											<td>No</td>
+											<th>Email</th>
+											<td id="profileEmailId">subhani.shaik@alacriti.com</td>
 										</tr>
 										<tr>
-											<td>PF UAN No:</td>
-											<td>xxxxxxxxxx</td>
+											<th>Mobile No.</th>
+											<td id="profileMobileNo">9948199100</td>
+										</tr>
+										
+										<tr>
+											<th>Department:</th>
+											<td id="profileDepartment">Developement</td>
 										</tr>
 										<tr>
-											<td>PAN No:</td>
-											<td>xxxxxxxxxx</td>
+											<th>Designation:</th>
+											<td id="profileDesignation">Sr.Developer</td>
+										</tr>
+										
+										<tr>
+											<th>Date of Birth</th>
+											<td id="profileDOB">something</td>
 										</tr>
 										<tr>
-											<td>Aadhar No:</td>
-											<td>xxxxxxxxxx</td>
+											<th>Gender</th>
+											<td id="profileGender">Male</td>
 										</tr>
 										<tr>
-											<td>Hire date:</td>
-											<td>17/5/2016</td>
+											<th>Blood Group</th>
+											<td id="profileBloodGroup">A</td>
+										</tr>
+										
+										<tr>
+											<th>Skills</th>
+											<td id="profileSkills">skills</td>
+										</tr>
+										
+										<tr>
+											<th>Hired date:</th>
+											<td id="profileHireDate">17/5/2016</td>
+										</tr>
+										
+										<tr>
+											<th>Marital Status</th>
+											<td id="profileMaritalStatus">No</td>
 										</tr>
 										<tr>
-											<td>Date of Birth</td>
-											<td>something</td>
+											<th>PF UAN No:</th>
+											<td id="profilePfNo">xxxxxxxxxx</td>
 										</tr>
 										<tr>
-											<td>Gender</td>
-											<td>Male</td>
+											<th>PAN No:</th>
+											<td id="profilePanNo">xxxxxxxxxx</td>
 										</tr>
 										<tr>
-											<td>Home Address</td>
-											<td>Something</td>
+											<th>Aadhar No:</th>
+											<td id="profileAadharNo">xxxxxxxxxx</td>
 										</tr>
 										<tr>
-											<td>Email</td>
-											<td>subhani.shaik@alacriti.com</td>
-										</tr>
-											<td>Mobile No.</td>
-											<td>9948199100</td>
-										</tr>
-										</tr>
-											<td>Skills</td>
-											<td>skills</td>
+											<th>Home Address</th>
+											<td id="profileAddress">Something</td>
 										</tr>
 									</tbody>
 								</table>
@@ -127,5 +133,6 @@
 
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<script type="text/javascript" src="js/profile.js"></script>
 </body>
 </html>

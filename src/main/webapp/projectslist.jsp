@@ -1,146 +1,135 @@
-<jsp:include page="header.jsp"/>
+<%-- <jsp:include page="header.jsp" /> --%>
 
-<div class="container" style="width: 100%;">
-	<div class="row">
-<!-- 		<div class="col-xs-12 col-xs-12 col-xs-6 col-xs-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad"> -->
+<!-- <div class="container" style="width: 100%;"> -->
+<!-- 	<div class="row"> -->
+<!-- 		<!-- 		<div class="col-xs-12 col-xs-12 col-xs-6 col-xs-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad"> -->
+-->
+<!-- 		<div class="toppad"> -->
+<!-- 			<div class="panel panel-primary"> -->
+<!-- 				<div class="panel-heading text-center"> -->
+<!-- 					<h3 class="panel-title ">Projects List</h3> -->
+<!-- 				</div> -->
+<!-- 				<table class="table table-striped table-hover" -->
+<!-- 					id="projectsListTable" data-page-list="[5, 10, 20, 50, 100, 200]" -->
+<!-- 					data-query-params="queryParams"> -->
+<!-- 				</table> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+<!-- 	</div> -->
+<!-- </div> -->
+<!-- <!-- 		</div> -->
+-->
+<!-- <script type="text/javascript" src="js/bootstrap.js"></script> -->
+<!-- <script type="text/javascript" src="js/projectslist.js"></script> -->
+
+<!-- </body> -->
+<!-- </html> -->
+
+
+<!doctype html>
+<html lang="en" ng-app="projectsTable">
+<head>
+<meta charset="utf-8">
+<title>EmpProjectTrackingTool</title>
+
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+	<jsp:include page="header.jsp" />
+	<div class="container">
 		<div class="toppad">
 			<div class="panel panel-primary">
-				<div class="panel-heading text-center">
-					<h3 class="panel-title ">Projects</h3>
+				<div class="panel-heading text-center clearfix">
+					<h2 class="panel-title ">Projects List</h2>
+					<form class="form-inline pull-right">
+						<label>Search</label> <input type="text" ng-model="search"
+							class="form-control" placeholder="Search">
+					</form>
 				</div>
 				<div class="panel-body">
-					<div class="table-responsive">
-						<table class="table table table-striped table table-hover"
-							data-page-list="[5, 10, 20, 50, 100, 200]"
-							data-query-params="queryParams">
+					<div class="bs-component" ng-controller="projectslist">
+
+						<table class="table table-striped table-hover text-center">
 							<thead>
 								<tr>
-									<th>Project Id</th>
-									<th>Name</th>
-									<th>Description</th>
-									<th>Project Manager</th>
-									<th>Start Date</th>
-									<th>End Date</th>
-									<th>Skills Required</th>
-									<th>Status</th>
-									<th>Client Name</th>
-									<th>Client Contacts</th>
+									<th ng-click="sort('projectId')" class="text-center">project
+										Id <span class="glyphicon sort-icon"
+										ng-show="sortKey=='projectId'"
+										ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+									</th>
+									<th ng-click="sort('projectName')" class="text-center">Project
+										Name <span class="glyphicon sort-icon"
+										ng-show="sortKey=='projectName'"
+										ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+									</th>
+									<th ng-click="sort('startDate')" class="text-center">Start
+										Date <span class="glyphicon sort-icon"
+										ng-show="sortKey=='startDate'"
+										ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+									</th>
+									<th ng-click="sort('endDate')" class="text-center">End
+										Date<span class="glyphicon sort-icon"
+										ng-show="sortKey=='endDate'"
+										ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+									</th>
+									<th ng-click="sort('progress')" class="text-center">Progress<span
+										class="glyphicon sort-icon" ng-show="sortKey=='progress'"
+										ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+									</th>
+									<th ng-click="sort('status')" class="text-center">Status <span
+										class="glyphicon sort-icon" ng-show="sortKey=='status'"
+										ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+									</th>
+									<th ng-click="sort('Assign')" class="text-center">Assign
+										Employers <span class="glyphicon sort-icon"
+										ng-show="sortKey=='Assign'"
+										ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+
+									</th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>1</td>
-									<td>EmpProjectTrackingTool</td>
-									<td>Project Assigning and Tracking Portal</td>
-									<td>Subhani</td>
-									<td>25/07/2016</td>
-									<td>05/08/2016</td>
-									<td>Developer</td>
-									<td>Live</td>
-									<td>Alacriti</td>
-									<td>9948199100</td>
-								</tr>
-								<tr>
-									<td>1</td>
-									<td>EmpProjectTrackingTool</td>
-									<td>Project Assigning and Tracking Portal</td>
-									<td>Subhani</td>
-									<td>25/07/2016</td>
-									<td>05/08/2016</td>
-									<td>Developer</td>
-									<td>Live</td>
-									<td>Alacriti</td>
-									<td>9948199100</td>
-								</tr>
-								<tr>
-									<td>1</td>
-									<td>EmpProjectTrackingTool</td>
-									<td>Project Assigning and Tracking Portal</td>
-									<td>Subhani</td>
-									<td>25/07/2016</td>
-									<td>05/08/2016</td>
-									<td>Developer</td>
-									<td>Live</td>
-									<td>Alacriti</td>
-									<td>9948199100</td>
-								</tr>
-								<tr>
-									<td>1</td>
-									<td>EmpProjectTrackingTool</td>
-									<td>Project Assigning and Tracking Portal</td>
-									<td>Subhani</td>
-									<td>25/07/2016</td>
-									<td>05/08/2016</td>
-									<td>Developer</td>
-									<td>Live</td>
-									<td>Alacriti</td>
-									<td>9948199100</td>
-								</tr>
-								<tr>
-									<td>1</td>
-									<td>EmpProjectTrackingTool</td>
-									<td>Project Assigning and Tracking Portal</td>
-									<td>Subhani</td>
-									<td>25/07/2016</td>
-									<td>05/08/2016</td>
-									<td>Developer</td>
-									<td>Live</td>
-									<td>Alacriti</td>
-									<td>9948199100</td>
-								</tr>
-								<tr>
-									<td>1</td>
-									<td>EmpProjectTrackingTool</td>
-									<td>Project Assigning and Tracking Portal</td>
-									<td>Subhani</td>
-									<td>25/07/2016</td>
-									<td>05/08/2016</td>
-									<td>Developer</td>
-									<td>Live</td>
-									<td>Alacriti</td>
-									<td>9948199100</td>
-								</tr>
-								<tr>
-									<td>1</td>
-									<td>EmpProjectTrackingTool</td>
-									<td>Project Assigning and Tracking Portal</td>
-									<td>Subhani</td>
-									<td>25/07/2016</td>
-									<td>05/08/2016</td>
-									<td>Developer</td>
-									<td>Live</td>
-									<td>Alacriti</td>
-									<td>9948199100</td>
+								<tr
+									dir-paginate="user in users|orderBy:sortKey:reverse|filter:search|itemsPerPage:5">
+
+									<td>
+										<button id={{user.projectId}} class="btn btn-success btn-sm">{{user.projectId}}</button>
+									</td>
+									<td>{{user.projectName}}</td>
+									<td>{{user.startDate}}</td>
+									<td>{{user.endDate}}</td>
+									<td>{{user.progress}}</td>
+									<td>{{user.status}}</td>
+									<td><button id=projectassign{{user.projectId}}
+											class="btn btn-info btn-sm">Assign</button></td>
 								</tr>
 							</tbody>
 						</table>
 					</div>
-					<div class="panel-footer clearfix">
-						<ul class="pagination pagination-panel pull-right">
-							<li><a href="#">«</a></li>
-							<li class="active"><a href="#">1</a></li>
-							<li><a href="#">2</a></li>
-							<li><a href="#">3</a></li>
-							<li><a href="#">4</a></li>
-							<li><a href="#">5</a></li>
-							<li><a href="#">»</a></li>
-						</ul>
+					<div class="panel-footer clearfix text-center">
+						<dir-pagination-controls max-size="5" direction-links="true"
+							boundary-links="true"> </dir-pagination-controls>
 					</div>
 				</div>
 			</div>
-			</div>
-<!-- 		</div> -->
+		</div>
 	</div>
-</div>
 
-<script>
-	function queryParams(params) {
-		return {
-			limit : params.pageSize,
-			offset : params.pageSize * (params.pageNumber - 1),
-			search : params.searchText,
-			name : params.sortName,
-			order : params.sortOrder
-		};
-	}
-</script>
+
+	<div class="" >
+		<button class="btn btn-sm btn-warning" id="addProject">Add</button>
+	</div>
+	
+	<script src="js/angular.js"></script>
+	<script src="js/dirPagination.js"></script>
+	<script src="js/projectslistapp.js"></script>
+	<script src="js/projectslist.js"></script>
+
+</body>
+</html>

@@ -6,19 +6,16 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.jboss.resteasy.logging.Logger;
+
 @Path("/test")
 public class MyResource {
 
-//	@GET
-//	@Produces("text/plain")
-//	public Response test(){
-//		String result="hello...";
-//		return Response.status(200).entity(result).build();
-//	}
+	static Logger logger = Logger.getLogger(MyResource.class);
 	@GET
-//	@Produces(MediaType.TEXT_PLAIN)
 	@Produces("text/plain")
 	public String test(){
+		logger.info("success..");
 		return "Hello subhani....";
 	}
 }

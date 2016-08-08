@@ -4,6 +4,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>EmpProjectTrackingTool</title>
 
+
+<script src="https://apis.google.com/js/platform.js" async defer></script>
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <script
@@ -15,6 +17,10 @@
 	href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css">
 <script type="text/javascript"
 	src="https://cdn.datatables.net/v/dt/dt-1.10.12/datatables.min.js"></script>
+	
+	<meta name="google-signin-scope" content="profile email">
+	<meta name="google-signin-client_id"
+	content="785033293568-794t5nnjqgp7lutnalpulifrhc0ciftd.apps.googleusercontent.com">
 </head>
 <body>
 	<nav class="navbar navbar-default "> </nav>
@@ -29,12 +35,17 @@
 			<li><a
 				href="http://192.168.35.190:8080/EmpProjectTrackingTool/employeelist.jsp">Employers
 					List</a></li>
-			<li><a href="http://192.168.35.190:8080/EmpProjectTrackingTool/projectslist.jsp">Projects</a></li>
-			<li><a href="http://192.168.35.190:8080/EmpProjectTrackingTool/editproject.jsp">Edit Project</a></li>
+			<li><a
+				href="http://192.168.35.190:8080/EmpProjectTrackingTool/projectslist.jsp">Projects</a></li>
+			<li><a
+				href="http://192.168.35.190:8080/EmpProjectTrackingTool/editproject.jsp">Edit
+					Project</a></li>
 			<li><a
 				href="http://192.168.35.190:8080/EmpProjectTrackingTool/editemp.jsp">Edit
 					Employee</a></li>
-			<li><a href="http://192.168.35.190:8080/EmpProjectTrackingTool/employeeassignment.jsp">Assign Project</a></li>
+			<li><a
+				href="http://192.168.35.190:8080/EmpProjectTrackingTool/employeeassignment.jsp">Assign
+					Project</a></li>
 			<li><a href="#">About</a></li>
 			<li><a href="#">Contact</a></li>
 			<div class="btn-group">
@@ -77,19 +88,16 @@
 		</ul>
 
 		<ul class="nav navbar-nav navbar-right">
-			<button type="button" class="btn btn-success navbar-btn btn-sm">
+			<button type="button" class="btn btn-success navbar-btn btn-sm"
+				id="adminLoginUserId"><script>$("#adminLoginUserId").html(localStorage.getItem("userName"))</script>
 				<span class="glyphicon glyphicon-ok"></span>
-				<%
-					out.print((String) session.getAttribute("EmpSessId"));
-				%>
+
 			</button>
-			<a href="http://192.168.35.190:8080/EmployeePortal/logout"
-				class="btn btn-primary btn-sm">LogOut</a>
+				
+			<button class="btn btn-sm btn-primary" onclick="signOut()">Signout</button>
+
+			</button>
 		</ul>
 	</div>
 
 	</nav>
-	<%-- <jsp:include page="loggedinheader.jsp"/> --%>
-	<script type="text/javascript" src="/js/bootstrap.js"></script>
-</body>
-</html>

@@ -37,6 +37,22 @@ public class RegisterVO {
 		this.setPassword(password);
 		this.setProjectStatus(projectStatus);
 	}
+	
+	public RegisterVO(String firstName, String emailId, String password,String projectStatus) {
+		super();
+		this.setFirstName(firstName);
+		this.setEmailId(emailId);
+		this.setPassword(password);
+		this.setProjectStatus(projectStatus);
+	}
+
+	
+	public RegisterVO(String firstName, String lastName, String emailId) {
+		super();
+		this.setFirstName(firstName);
+		this.setLastName(lastName);
+		this.setEmailId(emailId);
+	}
 
 	public String getEmployerId() {
 		return employerId;

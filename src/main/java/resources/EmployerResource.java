@@ -3,6 +3,8 @@ package resources;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.security.PermitAll;
+import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -32,6 +34,7 @@ public class EmployerResource {
 	ProjectAssignmentVO projectAssignmentVO=new ProjectAssignmentVO();
 	List<ProjectAssignmentVO> projectHistoryList=new ArrayList<ProjectAssignmentVO>();
 
+//	@PermitAll
 	@GET
 	public List<EmployerVO> getAllEmployers() {
 
@@ -40,6 +43,7 @@ public class EmployerResource {
 		return employerDelegate.getAllEmployers();
 	}
 
+//	@PermitAll
 	@GET
 	@Path("/{employerId}")
 	public List<EmployerVO> getEmployer(@PathParam("employerId") String employerId) {
@@ -48,6 +52,7 @@ public class EmployerResource {
 		return employerDelegate.getEmployer(employerId);
 	}
 	
+//	@RolesAllowed("ADMIN")
 	@POST
 	@Path("/add")
 	public RegisterVO addEmployer(RegisterVO registerVO) {
@@ -55,6 +60,7 @@ public class EmployerResource {
 		return registerVO;
 	}
 	
+//	@PermitAll
 	@PUT
 	@Path("/{employerId}/update")
 	public EmployerVO updateEmployer(@PathParam("employerId") String employerId,EmployerVO employerVO) {
@@ -62,7 +68,7 @@ public class EmployerResource {
 		return employerVO;
 	}
 	
-	
+//	@RolesAllowed("ADMIN")
 	@POST
 	@Path("/{employerId}/delete")
 	public String deleteEmployer(@PathParam("employerId") String employerId) {
@@ -70,6 +76,7 @@ public class EmployerResource {
 		return "Successfully deleted..";
 	}
 	
+//	@PermitAll
 	@GET
 	@Path("/assignment")
 	public List<EmployerVO> getEmployersToAssign() {
@@ -78,6 +85,7 @@ public class EmployerResource {
 		return employerDelegate.getEmployersToAssign();
 	}
 	
+//	@PermitAll
 	@GET
 	@Path("/{employerId}/history")
 	public List<ProjectAssignmentVO> getProjectHistory(@PathParam("employerId") String employerId) {

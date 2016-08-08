@@ -14,7 +14,7 @@
 								<tr>
 									<td>Emp Id:</td>
 									<td><input class="form-control" id="updateProfileEmpId"
-										type="text" placeholder="AL184" disabled></td>
+										type="text" placeholder="AL184"></td>
 								</tr>
 								<tr>
 									<td>First Name:</td>

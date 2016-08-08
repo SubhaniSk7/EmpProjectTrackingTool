@@ -18,7 +18,6 @@
 <!-- 	</div> -->
 <!-- </div> -->
 <!-- <!-- 		</div> -->
--->
 <!-- <script type="text/javascript" src="js/bootstrap.js"></script> -->
 <!-- <script type="text/javascript" src="js/projectslist.js"></script> -->
 
@@ -42,6 +41,9 @@
 <body>
 
 	<jsp:include page="header.jsp" />
+	<div class="navbar-header" >
+		<button class="btn btn-sm btn-warning" id="addProject">Add</button>
+	</div>
 	<div class="container">
 		<div class="toppad">
 			<div class="panel panel-primary">
@@ -119,11 +121,6 @@
 				</div>
 			</div>
 		</div>
-	</div>
-
-
-	<div class="" >
-		<button class="btn btn-sm btn-warning" id="addProject">Add</button>
 	</div>
 	
 	<script src="js/angular.js"></script>

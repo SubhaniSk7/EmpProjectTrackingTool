@@ -16,6 +16,7 @@
 //import org.apache.log4j.Logger;
 //
 //import vo.LoginVO;
+//import delegate.LoginDelegate;
 //
 //@Path("/login")
 //@Consumes(MediaType.APPLICATION_JSON)
@@ -27,15 +28,15 @@
 //	
 //	static Logger logger=Logger.getLogger(LoginResource.class);
 //	
-////	LoginDelegate loginDelegate=new LoginDelegate();
+//	LoginDelegate loginDelegate=new LoginDelegate();
 //	
 //	@POST
-//	public LoginVO loginUser(LoginVO loginDetails) throws SQLException, ServletException, IOException{
+//	public LoginVO loginUser(LoginVO loginVO) throws SQLException, ServletException, IOException{
 //		
 //		HttpSession session=request.getSession();
 //		logger.info(session.getId());
 //		
-////		return loginDelegate.loginUser(loginDetails);
+//		return loginDelegate.loginUser(loginVO);
 //	}
 //	
 //}

@@ -24,6 +24,7 @@ public class ProjectAssignmentResource {
 	
 	ProjectAssignmentDelegate projectAssignmentDelegate=new ProjectAssignmentDelegate();
 
+	
 	@POST
 	@Path("/{projectId}/assign")
 	public String addProjectAssignment(@PathParam("projectId") long projectId,ProjectAssignmentVO projectAssignmentVO) {
@@ -43,6 +44,7 @@ public class ProjectAssignmentResource {
 		return projectAssignmentDelegate.addProjectAssignment(projectAssignmentVO);
 	}
 //	
+	
 	@POST
 	@Path("/{projectId}/update")
 	public String updateProjectAssignment(@PathParam("projectId") long projectId,ProjectAssignmentVO projectAssignmentVO) {

@@ -2,6 +2,8 @@ package resources;
 
 import java.util.List;
 
+import javax.annotation.security.PermitAll;
+import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -25,6 +27,7 @@ public class DesignationResource {
 	
 	DesignationDelegate designationDelegate=new DesignationDelegate();
 
+//	@PermitAll
 	@GET
 	public List<DesignationVO> getAllDesignations() {
 
@@ -33,6 +36,7 @@ public class DesignationResource {
 		return designationDelegate.getAllDesignations();
 	}
 
+//	@PermitAll
 	@GET
 	@Path("/{designationId}")
 	public List<DesignationVO> getDesignation(@PathParam("designationId") long designationId) {
@@ -41,6 +45,7 @@ public class DesignationResource {
 		return designationDelegate.getDesignation(designationId);
 	}
 	
+//	@RolesAllowed("ADMIN")
 	@POST
 	@Path("/add")
 	public String addDesignation(DesignationVO designationVO) {

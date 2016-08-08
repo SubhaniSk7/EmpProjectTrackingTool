@@ -2,6 +2,8 @@ package resources;
 
 import java.util.List;
 
+import javax.annotation.security.PermitAll;
+import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -26,6 +28,7 @@ public class DepartmentResource {
 	
 	DepartmentDelegate departmentDelegate=new DepartmentDelegate();
 
+	@PermitAll
 	@GET
 	public List<DepartmentVO> getAllDepartments() {
 
@@ -33,7 +36,8 @@ public class DepartmentResource {
 		
 		return departmentDelegate.getAllDepartments();
 	}
-
+	
+	@PermitAll
 	@GET
 	@Path("/{departmentId}")
 	public List<DepartmentVO> getDepartment(@PathParam("departmentId") long departmentId) {
@@ -42,11 +46,12 @@ public class DepartmentResource {
 		return departmentDelegate.getDepartment(departmentId);
 	}
 //	
+	@RolesAllowed("ADMIN")
 	@POST
 	@Path("/add")
 	public String addDepartment(DepartmentVO departmentVO) {
 		departmentDelegate.addDepartment(departmentVO);
-		return "Successfully added..";
+		return "Successfully added department..";
 	}
 //	
 //	@POST

@@ -1,4 +1,4 @@
-<jsp:include page="header.jsp" />
+<jsp:include page="adminheader.jsp" />
 
 <div class="container" style="width: 100%;">
 	<div class="row">
@@ -138,6 +138,7 @@
 
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/logout.js"></script>
 
 <script type="text/javascript">
 	$('.flexdatalist').flexdatalist(function() {

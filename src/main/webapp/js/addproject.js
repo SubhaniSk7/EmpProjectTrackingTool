@@ -39,7 +39,7 @@ $(document).ready(function() {
 										}
 									},
 									error :function(xhr){
-										alert("Something went Wrong..");
+										alert("Not added..Please fill correctly.");
 									}
 							});
 		});

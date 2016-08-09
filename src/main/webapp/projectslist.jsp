@@ -3,7 +3,6 @@
 <!-- <div class="container" style="width: 100%;"> -->
 <!-- 	<div class="row"> -->
 <!-- 		<!-- 		<div class="col-xs-12 col-xs-12 col-xs-6 col-xs-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad"> -->
--->
 <!-- 		<div class="toppad"> -->
 <!-- 			<div class="panel panel-primary"> -->
 <!-- 				<div class="panel-heading text-center"> -->
@@ -40,10 +39,10 @@
 </head>
 <body>
 
-	<jsp:include page="header.jsp" />
-	<div class="navbar-header" >
-		<button class="btn btn-sm btn-warning" id="addProject">Add</button>
-	</div>
+	<jsp:include page="adminheader.jsp" />
+<!-- 	<div class="navbar-header" > -->
+<!-- 		<button class="btn btn-sm btn-warning" id="addProject">Add</button> -->
+<!-- 	</div> -->
 	<div class="container">
 		<div class="toppad">
 			<div class="panel panel-primary">

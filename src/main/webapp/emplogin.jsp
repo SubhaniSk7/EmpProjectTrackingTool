@@ -1,5 +1,4 @@
-<jsp:include page="header.jsp"/>
-<h1><%out.print((String)session.getAttribute("EmpSessId")); %></h1>
+<jsp:include page="empheader.jsp"/>
 	<script type="text/javascript" src="/js/bootstrap.js"></script>
 </body>
 </html>

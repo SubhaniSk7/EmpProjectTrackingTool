@@ -32,6 +32,17 @@
 
 
 $(document).ready(function(){
+	
+		$('input[type="date"]').change(function(){
+			
+	        alert(this.value);
+	        var inputDate = new Date(this.value);
+	        
+	        if(new Date($("#employeeAssignmentStartDate".val())) > new Date($("#employeeAssignmentEndDate".val()))){
+	        	alert("date");
+	        }
+	    });
+	
  		$(":input").on('change', function() {
  			var optionFound = false, datalist = this.list;
  			console.log(datalist);

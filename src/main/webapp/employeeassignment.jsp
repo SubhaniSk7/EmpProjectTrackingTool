@@ -119,15 +119,39 @@
 	</form>
 </div>
 <script type="text/javascript" src="js/bootstrap.js"></script>
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
 <script type="text/javascript" src="js/employeeassignment.js"></script>
 
 <script type="text/javascript" src="js/datalistValidation.js"></script>
+
+<script type="text/javascript">
+    $("#employeeAssignmentEndDate").on('select',function(){
+
+		var startDate= $("#employeeAssignmentStartDate").val();
+		var endDate=$("#employeeAssignmentEndDate").val();
+
+		var sDate=new Date(startDate);
+		var eDate=new Date(endDate);
+		console.log(sDate);
+		console.log(eDate)
+		if(StartDate!= '' && StartDate!= '' && sDate> eDate)
+	    {
+	    	alert("Please ensure that the End Date is greater than or equal to the Start Date.");
+	    	$('button[type="submit"]').attr("disabled",true);
+	    	return false;
+	    }
+
+    });
+</script>
+
 <script type="text/javascript">
 	$('.flexdatalist').flexdatalist(function() {
 		selectionRequired: 1;
 		minLength: 1
 	});
 
+	
 	$(".datepicker").datepicker(function() {
 		format: 'yyyy-mm-dd'
 	});

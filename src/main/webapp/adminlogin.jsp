@@ -25,7 +25,7 @@
 	<div class="container-fluid">
 		<ul class="nav navbar-nav">
 
-			<li class="active"><a href="home.jsp">Home</a></li>
+			<li class="active"><a href="http://192.168.35.190:8080/EmpProjectTrackingTool/adminlogin.jsp">Home</a></li>
 			<li><a
 				href="http://192.168.35.190:8080/EmpProjectTrackingTool/employeelist.jsp">Employers
 					List</a></li>
@@ -35,6 +35,7 @@
 				href="http://192.168.35.190:8080/EmpProjectTrackingTool/editemp.jsp">Edit
 					Employee</a></li>
 			<li><a href="http://192.168.35.190:8080/EmpProjectTrackingTool/employeeassignment.jsp">Assign Project</a></li>
+			<li><a href="http://192.168.35.190:8080/EmpProjectTrackingTool/addproject.jsp">Add Project</a></li>
 			<li><a href="#">About</a></li>
 			<li><a href="#">Contact</a></li>
 			<div class="btn-group">
@@ -90,6 +91,8 @@
 
 	</nav>
 	<%-- <jsp:include page="loggedinheader.jsp"/> --%>
-	<script type="text/javascript" src="/js/bootstrap.js"></script>
+<%-- 	<jsp:include page="employeelist.jsp"/> --%>
+	
+	<script type="text/javascript" src="js/bootstrap.js"></script>
 </body>
 </html>

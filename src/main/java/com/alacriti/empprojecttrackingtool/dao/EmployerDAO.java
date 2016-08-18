@@ -172,18 +172,21 @@ public class EmployerDAO {
 //					+ "union "
 //					+ "select empid from emp_prj_dtls_tbl where 3 > (select count(*) from emp_prj_dtls_tbl group by empid having status='live');";
 			
-			String query="select empid from emp_dtls_tbl where prjstatus='unassigned'"
-					+ " union select empid from emp_prj_dtls_tbl where status='live' group by empid having count(status)<3;";
+//			String query="select empid from emp_dtls_tbl where prjstatus='unassigned' or prjstatus is null"
+//					+ " union select empid from emp_prj_dtls_tbl where status='live' group by empid having count(status)<3;";
+//			
 			
+			String query="select e.empid,e.firstname from emp_dtls_tbl e,"
+					+ "(select empid from emp_dtls_tbl where prjstatus='unassigned' or prjstatus is null union select empid from emp_prj_dtls_tbl where status='live' group by empid having count(status)<3) f where e.empid=f.empid;";
 			ResultSet rs = stmt.executeQuery(query);
 					
 			while(rs.next()){
-				employersList.add(new EmployerVO(rs.getString("empid")));
+				employersList.add(new EmployerVO(rs.getString("empid"),rs.getString("firstname")));
 			}
 
 			logger.info("done DAO successfully..");
 		} catch (Exception e) {
-
+			e.printStackTrace();
 			logger.info("There is an exception:-");
 		} finally {
 			
@@ -215,5 +218,29 @@ public class EmployerDAO {
 
 		logger.info("sending employerslist..");
 		return projectHistoryList;
+	}
+	
+	
+	public List<EmployerVO> getEmployersToAssignBySkills(Connection myConn, Statement stmt,String empSkill) {
+		try {
+			
+			String query="select e.empid,e.firstname from emp_dtls_tbl e,"
+					+ "(select empid from emp_dtls_tbl where skills like '%"+empSkill
+					+ "%' or prjstatus='unassigned' or prjstatus is null union select empid from emp_prj_dtls_tbl where status='live' group by empid having count(status)<3) f where e.empid=f.empid;";
+			ResultSet rs = stmt.executeQuery(query);
+					
+			while(rs.next()){
+				employersList.add(new EmployerVO(rs.getString("empid"),rs.getString("firstname")));
+			}
+
+			logger.info("done DAO successfully..");
+		} catch (Exception e) {
+			logger.info("There is an exception:-");
+		} finally {
+			
+		}
+		System.out.println(employersList);
+		logger.info("sending employerslist..");
+		return employersList;
 	}
 }

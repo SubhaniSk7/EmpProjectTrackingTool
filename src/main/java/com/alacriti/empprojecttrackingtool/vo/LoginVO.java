@@ -1,9 +1,13 @@
 package com.alacriti.empprojecttrackingtool.vo;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class LoginVO {
 	
 	int userId;
 	String userName;
+	String name;
 	String password;
 	String role;
 	public LoginVO(){
@@ -22,6 +26,16 @@ public class LoginVO {
 		this.setPassword(password);
 	}
 	
+	public LoginVO(String name) {
+		this.setName(name);;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	public int getUserId() {
 		return userId;
 	}
@@ -46,4 +60,10 @@ public class LoginVO {
 	public void setRole(String role) {
 		this.role = role;
 	}
+	@Override
+	public String toString() {
+		return "LoginVO [userName=" + userName + ", password=" + password
+				+ ", role=" + role + "]";
+	}
+	
 }

@@ -28,18 +28,16 @@ public class EmployerVO {
 	private String maritalStatus;
 	private String prjStatus;
 	private String password;
-	
-
 
 	public EmployerVO() {
 
 	}
 
 	public EmployerVO(int serialNo, String employerId, String firstName,
-			String lastName, int department, int role,
-			int designation, Date dateOfBirth, String gender, long mobileNo,
-			String address, String bloodGroup, String emailId, String panNo,
-			String aadharNo, String pfNo, String skills,String maritalStatus,String prjStatus) {
+			String lastName, int department, int role, int designation,
+			Date dateOfBirth, String gender, long mobileNo, String address,
+			String bloodGroup, String emailId, String panNo, String aadharNo,
+			String pfNo, String skills, String maritalStatus, String prjStatus) {
 
 		this.setSerialNo(serialNo);
 		this.setEmployerId(employerId);
@@ -61,19 +59,22 @@ public class EmployerVO {
 		this.setMaritalStatus(maritalStatus);
 		this.setPrjStatus(prjStatus);
 	}
-	
 
-//	public EmployerVO(String password) {
-//		this.setPassword(password);
-//	}
-//
+	// public EmployerVO(String password) {
+	// this.setPassword(password);
+	// }
+	//
 	public EmployerVO(String employerId) {
-		
+
 		this.setEmployerId(employerId);
 	}
 
-	
-	
+	public EmployerVO(String employerId, String firstName) {
+
+		this.setEmployerId(employerId);
+		this.setFirstName(firstName);
+	}
+
 	public EmployerVO(String employerId, String firstName, String lastName,
 			Date dateOfBirth, long mobileNo, String address, String bloodGroup,
 			String emailId, String panNo, String aadharNo, String pfNo,
@@ -93,29 +94,7 @@ public class EmployerVO {
 		this.setSkills(skills);
 		this.setMaritalStatus(maritalStatus);
 	}
-//
-//	public EmployerVO(String employerId, String firstName, String lastName,
-//			Date dateOfBirth, long mobileNo, String address, String bloodGroup,
-//			String emailId, String panNo, String aadharNo, String pfNo,
-//			String skills, String maritalStatus) {
-//
-//		this.setGender(gender);
-//		this.setEmployerId(employerId);
-//		this.setFirstName(firstName);
-//		this.setLastName(lastName);
-//		this.setDateOfBirth(dateOfBirth);
-//		this.setMobileNo(mobileNo);
-//		this.setAddress(address);
-//		this.setBloodGroup(bloodGroup);
-//		this.setEmailId(emailId);
-//		this.setPanNo(panNo);
-//		this.setAadharNo(aadharNo);
-//		this.setPfNo(pfNo);
-//		this.setSkills(skills);
-//		this.setMaritalStatus(maritalStatus);
-//	}
 
-	
 	public int getSerialNo() {
 		return serialNo;
 	}
@@ -251,7 +230,6 @@ public class EmployerVO {
 	public void setSkills(String skills) {
 		this.skills = skills;
 	}
-	
 
 	public String getMaritalStatus() {
 		return maritalStatus;

@@ -77,6 +77,12 @@ public class ProjectVO {
 		this.setProjectId(projectId);;
 	}
 
+	
+	public ProjectVO(int projectId, String projectName) {
+		this.setProjectId(projectId);
+		this.setProjectName(projectName);
+	}
+
 	public int getProjectId() {
 		return projectId;
 	}

@@ -19,7 +19,6 @@
 //import javax.ws.rs.container.ContainerRequestContext;
 //import javax.ws.rs.container.ContainerRequestFilter;
 //import javax.ws.rs.core.MultivaluedMap;
-//import javax.ws.rs.core.Response;
 //import javax.ws.rs.ext.Provider;
 //
 //import org.apache.log4j.Logger;
@@ -31,36 +30,6 @@
 //@Provider
 //public class AuthenticationFilter implements ContainerRequestFilter {
 //
-//	// private static final String AUTHORIZATION_HEADER_KEY="Authorization";
-//	// private static final String AUTHORIZATION_HEADER_PREFIX="Basic";
-//	// private static final String SECURED_URL_PREFIX="app";
-//
-//	// public void filter(ContainerRequestContext requestContext) throws
-//	// IOException{
-//	// if(requestContext.getUriInfo().getPath().contains(SECURED_URL_PREFIX)){
-//	// List<String>
-//	// authHeader=requestContext.getHeaders().get(AUTHORIZATION_HEADER_KEY);
-//	// if(authHeader.size()>0){
-//	// String authToken=authHeader.get(0);
-//	// authToken=authToken.replaceFirst(AUTHORIZATION_HEADER_PREFIX,"");
-//	// String decodedString=Base64.decodeAsString(authToken);
-//	// StringTokenizer tokenizer=new StringTokenizer(decodedString,":");
-//	// String username=tokenizer.nextToken();
-//	// String password=tokenizer.nextToken();
-//	// if(isValidUser(username,password)){
-//	//
-//	// }
-//	// else{
-//	//
-//	// }
-//	// }
-//	// Response unauthorizedStatus=Response
-//	// .status(Response.Status.UNAUTHORIZED)
-//	// .entity("User cannot access the resource.")
-//	// .build();
-//	// requestContext.abortWith(unauthorizedStatus);
-//	// }
-//	// }
 //	static Logger logger=Logger.getLogger(AuthenticationFilter.class);
 //	
 //	public static String userRole;
@@ -81,29 +50,24 @@
 //		Method method = methodInvoker.getMethod();
 //
 //		System.out.println("in filter");
-//		// Access allowed for all
+//		
 //		if (!method.isAnnotationPresent(PermitAll.class)) {
-//			// Access denied for all
 //			if (method.isAnnotationPresent(DenyAll.class)) {
 //				requestContext.abortWith(ACCESS_FORBIDDEN);
 //				return;
 //			}
 //
-//			// Get request headers
 //			final MultivaluedMap<String, String> headers = requestContext
 //					.getHeaders();
 //
-//			// Fetch authorization header
 //			final List<String> authorization = headers
 //					.get(AUTHORIZATION_PROPERTY);
 //
-//			// If no authorization information present; block access
 //			if (authorization == null || authorization.isEmpty()) {
 //				requestContext.abortWith(ACCESS_DENIED);
 //				return;
 //			}
 //
-//			// Get encoded username and password
 //			final String encodedUserPassword = authorization.get(0)
 //					.replaceFirst(AUTHENTICATION_SCHEME + " ", "");
 //
@@ -124,7 +88,6 @@
 //			System.out.println(username);
 //			System.out.println(password);
 //
-//			// Verify user access
 //			if (method.isAnnotationPresent(RolesAllowed.class)) {
 //				RolesAllowed rolesAnnotation = method
 //						.getAnnotation(RolesAllowed.class);
@@ -158,13 +121,6 @@
 //			final Set<String> rolesSet) throws SQLException {
 //		boolean isAllowed = false;
 //
-//		// Step 1. Fetch password from database and match with password in
-//		// argument
-//		// If both match then get the defined role for user from database and
-//		// continue; else return isAllowed [false]
-//		// Access the database and do this part yourself
-//		// String userRole = userMgr.getUserRole(username);
-//
 //		try {
 //			Class.forName("com.mysql.jdbc.Driver");
 //
@@ -191,13 +147,10 @@
 //				isAllowed = false;
 //			}
 //		} catch (ClassNotFoundException e) {
-//			// TODO Auto-generated catch block
+//			
 //			e.printStackTrace();
 //		}
-//
-//		// String userRole = "ADMIN";
-//
-//		// Step 2. Verify user role
+//		
 //		if (rolesSet.contains(userRole)) {
 //			isAllowed = true;
 //		}

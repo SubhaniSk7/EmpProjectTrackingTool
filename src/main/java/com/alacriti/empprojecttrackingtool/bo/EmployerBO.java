@@ -10,6 +10,7 @@ import java.util.List;
 import org.jboss.resteasy.logging.Logger;
 
 import com.alacriti.empprojecttrackingtool.dao.EmployerDAO;
+import com.alacriti.empprojecttrackingtool.util.DBConnection;
 import com.alacriti.empprojecttrackingtool.vo.EmployerVO;
 import com.alacriti.empprojecttrackingtool.vo.ProjectAssignmentVO;
 import com.alacriti.empprojecttrackingtool.vo.RegisterVO;
@@ -28,22 +29,21 @@ public class EmployerBO {
 	Statement stmt;
 	Connection myConn=null;
 
+	DBConnection conn=new DBConnection();
+	
 	public List<EmployerVO> getAllEmployers() {
 
 		logger.info("In VO..");
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			myConn = DriverManager.getConnection("jdbc:mysql://192.168.35.70:3306/epettool_dev","epettool_dev", "epettool_dev");
+			myConn=conn.getConnection();
 			stmt = myConn.createStatement();
-
+			
 			logger.info("flow to DAO..");
 			employersList=employerDAO.getAllEmployers(myConn,stmt);
 
 			logger.info("flow to DAO successfully..");
 			logger.info("done BO successfully..");
 			
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -64,10 +64,9 @@ public class EmployerBO {
 
 		logger.info("In VO..");
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			myConn = DriverManager.getConnection("jdbc:mysql://192.168.35.70:3306/epettool_dev","epettool_dev", "epettool_dev");
+			myConn=conn.getConnection();
 			stmt = myConn.createStatement();
-
+			
 			logger.info("flow to DAO..");
 			
 			employersList=employerDAO.getEmployer(myConn,stmt,employerId);
@@ -75,8 +74,6 @@ public class EmployerBO {
 			logger.info("flow to DAO successfully..");
 			logger.info("done BO successfully..");
 			
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -98,10 +95,9 @@ public class EmployerBO {
 
 		logger.info("In VO..");
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			myConn = DriverManager.getConnection("jdbc:mysql://192.168.35.70:3306/epettool_dev","epettool_dev", "epettool_dev");
+			myConn=conn.getConnection();
 			stmt = myConn.createStatement();
-
+			
 			logger.info("flow to DAO..");
 			
 			employerDAO.addEmployer(myConn,stmt,registerVO);
@@ -109,8 +105,6 @@ public class EmployerBO {
 			logger.info("flow to DAO successfully..");
 			logger.info("done BO successfully..");
 			
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -133,10 +127,9 @@ public class EmployerBO {
 
 		logger.info("In VO..");
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			myConn = DriverManager.getConnection("jdbc:mysql://192.168.35.70:3306/epettool_dev","epettool_dev", "epettool_dev");
+			myConn=conn.getConnection();
 			stmt = myConn.createStatement();
-//
+			
 			logger.info("flow to DAO..");
 			
 			employerDAO.updateEmployer(employerId,myConn,stmt,employerVO);
@@ -144,8 +137,6 @@ public class EmployerBO {
 			logger.info("flow to DAO successfully..");
 			logger.info("done BO successfully..");
 			
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -166,10 +157,9 @@ public class EmployerBO {
 
 		logger.info("In VO..");
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			myConn = DriverManager.getConnection("jdbc:mysql://192.168.35.70:3306/epettool_dev","epettool_dev", "epettool_dev");
+			myConn=conn.getConnection();
 			stmt = myConn.createStatement();
-//
+			
 			logger.info("flow to DAO..");
 			
 			employerDAO.deleteEmployer(employerId,myConn,stmt);
@@ -177,8 +167,6 @@ public class EmployerBO {
 			logger.info("flow to DAO successfully..");
 			logger.info("done BO successfully..");
 			
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -199,18 +187,15 @@ public class EmployerBO {
 
 		logger.info("In VO..");
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			myConn = DriverManager.getConnection("jdbc:mysql://192.168.35.70:3306/epettool_dev","epettool_dev", "epettool_dev");
+			myConn=conn.getConnection();
 			stmt = myConn.createStatement();
-
+			
 			logger.info("flow to DAO..");
 			employersList=employerDAO.getEmployersToAssign(myConn,stmt);
 
 			logger.info("flow to DAO successfully..");
 			logger.info("done BO successfully..");
 			
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -232,10 +217,9 @@ public class EmployerBO {
 
 		logger.info("In VO..");
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			myConn = DriverManager.getConnection("jdbc:mysql://192.168.35.70:3306/epettool_dev","epettool_dev", "epettool_dev");
+			myConn=conn.getConnection();
 			stmt = myConn.createStatement();
-
+			
 			logger.info("flow to DAO..");
 			
 			projectHistoryList=employerDAO.getProjectHistory(myConn,stmt,employerId);
@@ -243,8 +227,6 @@ public class EmployerBO {
 			logger.info("flow to DAO successfully..");
 			logger.info("done BO successfully..");
 			
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -259,5 +241,35 @@ public class EmployerBO {
 		}
 		logger.info("sending employersList..");
 		return projectHistoryList;
+	}
+	
+	
+	public List<EmployerVO> getEmployersToAssignBySkills(String empSkill) {
+
+		logger.info("In VO..");
+		try {
+			myConn=conn.getConnection();
+			stmt = myConn.createStatement();
+			
+			logger.info("flow to DAO..");
+			employersList=employerDAO.getEmployersToAssignBySkills(myConn,stmt,empSkill);
+
+			logger.info("flow to DAO successfully..");
+			logger.info("done BO successfully..");
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		finally{
+
+			try {
+				stmt.close();
+				myConn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		logger.info("sending employersList..");
+		return employersList;
 	}
 }

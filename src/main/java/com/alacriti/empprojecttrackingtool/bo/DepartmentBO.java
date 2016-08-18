@@ -10,6 +10,7 @@ import java.util.List;
 import org.jboss.resteasy.logging.Logger;
 
 import com.alacriti.empprojecttrackingtool.dao.DepartmentDAO;
+import com.alacriti.empprojecttrackingtool.util.DBConnection;
 import com.alacriti.empprojecttrackingtool.vo.DepartmentVO;
 
 public class DepartmentBO {
@@ -21,13 +22,13 @@ public class DepartmentBO {
 	DepartmentVO departmentVO;
 	Statement stmt;
 	Connection myConn=null;
-
+	DBConnection conn=new DBConnection();
+	
 	public List<DepartmentVO> getAllDepartments() {
 
 		logger.info("In BO..");
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			myConn = DriverManager.getConnection("jdbc:mysql://192.168.35.70:3306/epettool_dev","epettool_dev", "epettool_dev");
+			myConn=conn.getConnection();
 			stmt = myConn.createStatement();
 			
 			logger.info("{flow to DAO..");
@@ -35,8 +36,6 @@ public class DepartmentBO {
 
 			logger.info("done BO successfully..");
 			
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -52,7 +51,6 @@ public class DepartmentBO {
 				logger.info(e.toString());
 			}
 		}
-
 		logger.info("sending departmentsList..");
 		return departmentsList;
 	}
@@ -61,25 +59,17 @@ public class DepartmentBO {
 
 		logger.info("In BO..");
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			myConn = DriverManager.getConnection("jdbc:mysql://192.168.35.70:3306/epettool_dev","epettool_dev", "epettool_dev");
+			myConn=conn.getConnection();
 			stmt = myConn.createStatement();
-			//
-//			System.out.println("flow to DAO..");
+			
 			logger.info("flow to DAO..");
 			
 			departmentsList=departmentDAO.getDepartment(myConn,stmt,departmentId);
-			//
-
-//			System.out.println("flow to DAO successfully..");
+			
 			logger.info("flow to DAO successfully..");
 			
-			
-//			System.out.println("done BO successfully..");
 			logger.info("done BO successfully..");
 			
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -96,14 +86,13 @@ public class DepartmentBO {
 		logger.info("sending departmentsList..");
 		return departmentsList;
 	}
-//	
-//	
+
 	public String addDepartment(DepartmentVO departmentVO) {
 
 		logger.info("In BO..");
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			myConn = DriverManager.getConnection("jdbc:mysql://192.168.35.70:3306/epettool_dev","epettool_dev", "epettool_dev");
+
+			myConn=conn.getConnection();
 			stmt = myConn.createStatement();
 			
 			logger.info("flow to DAO..");
@@ -113,8 +102,6 @@ public class DepartmentBO {
 			logger.info("flow to DAO successfully..");
 			logger.info("done BO successfully..");
 			
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -127,7 +114,7 @@ public class DepartmentBO {
 				e.printStackTrace();
 			}
 		}
-		logger.info("sending employersList..");
+		logger.info("sending DepartmentList..");
 		return "Successfully Added..";
 	}
 

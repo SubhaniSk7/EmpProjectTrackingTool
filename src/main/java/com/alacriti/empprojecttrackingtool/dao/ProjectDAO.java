@@ -155,10 +155,10 @@ public class ProjectDAO {
 	public List<ProjectVO> getProjectsToAssign(Connection myConn, Statement stmt) {
 		try {
 			
-			String query ="select prjid from prj_dtls_tbl;";
+			String query ="select prjid,prjname from prj_dtls_tbl;";
 			ResultSet rs = stmt.executeQuery(query);
 			while(rs.next()){
-				projectsList.add(new ProjectVO(rs.getInt("prjid")));
+				projectsList.add(new ProjectVO(rs.getInt("prjid"),rs.getString("prjname")));
 			}
 
 			logger.info("done DAO successfully..");

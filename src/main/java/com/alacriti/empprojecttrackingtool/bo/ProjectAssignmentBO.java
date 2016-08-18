@@ -10,6 +10,7 @@ import java.util.List;
 import org.jboss.resteasy.logging.Logger;
 
 import com.alacriti.empprojecttrackingtool.dao.ProjectAssignmentDAO;
+import com.alacriti.empprojecttrackingtool.util.DBConnection;
 import com.alacriti.empprojecttrackingtool.vo.ProjectAssignmentVO;
 
 public class ProjectAssignmentBO {
@@ -21,13 +22,13 @@ public class ProjectAssignmentBO {
 	Statement stmt;
 	Statement stmt1;
 	Connection myConn=null;
+	DBConnection conn=new DBConnection();
 	
 	public String addProjectAssignment(long projectId,ProjectAssignmentVO projectAssignmentVO) {
 
 		logger.info("In BO..");
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			myConn = DriverManager.getConnection("jdbc:mysql://192.168.35.70:3306/epettool_dev","epettool_dev", "epettool_dev");
+			myConn=conn.getConnection();
 			stmt = myConn.createStatement();
 			
 			logger.info("flow to DAO..");
@@ -37,8 +38,6 @@ public class ProjectAssignmentBO {
 			logger.info("flow to DAO successfully....");
 			logger.info("done BO successfully..");
 			
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -59,8 +58,7 @@ public class ProjectAssignmentBO {
 
 		logger.info("In BO..");
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			myConn = DriverManager.getConnection("jdbc:mysql://192.168.35.70:3306/epettool_dev","epettool_dev", "epettool_dev");
+			myConn=conn.getConnection();
 			stmt = myConn.createStatement();
 			stmt1=myConn.createStatement();
 //
@@ -71,8 +69,6 @@ public class ProjectAssignmentBO {
 			logger.info("flow to DAO successfully....");
 			logger.info("done BO successfully..");
 			
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -95,10 +91,9 @@ public class ProjectAssignmentBO {
 
 		logger.info("In BO..");
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			myConn = DriverManager.getConnection("jdbc:mysql://192.168.35.70:3306/epettool_dev","epettool_dev", "epettool_dev");
+			myConn=conn.getConnection();
 			stmt = myConn.createStatement();
-//
+			
 			logger.info("flow to DAO..");
 			
 			projectAssignmentDAO.updateProjectAssignment(myConn,stmt,projectId,projectAssignmentVO);
@@ -106,8 +101,6 @@ public class ProjectAssignmentBO {
 			logger.info("flow to DAO successfully....");
 			logger.info("done BO successfully..");
 			
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

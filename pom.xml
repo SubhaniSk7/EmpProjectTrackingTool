@@ -43,6 +43,14 @@
 			<artifactId>jaxrs-api</artifactId>
 			<version>3.0.12.Final</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.rapidpm.microservice/rapidpm-microservice-modules-optionals-filesystem -->
+		<dependency>
+			<groupId>org.rapidpm.microservice</groupId>
+			<artifactId>rapidpm-microservice-modules-optionals-filesystem</artifactId>
+			<version>0.1.0</version>
+			<type>pom</type>
+		</dependency>
+
 		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 		<!-- <dependency> -->
 		<!-- <groupId>mysql</groupId> -->
@@ -75,6 +83,12 @@
 		</dependency>
 
 		<!-- <dependency> -->
+		<!-- <groupId>org.rapidpm.microservice</groupId> -->
+		<!-- <artifactId>rapidpm-microservice-modules-persistence-local-hashmap</artifactId> -->
+		<!-- <version>0.0.2</version> -->
+		<!-- </dependency -->
+
+		<!-- <dependency> -->
 		<!-- <groupId>org.jboss.as.plugins</groupId> -->
 		<!-- <artifactId>jboss-as-maven-plugin</artifactId> -->
 		<!-- <version>7.7.Final</version> -->
@@ -82,14 +96,14 @@
 	</dependencies>
 	<build>
 		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
-				</configuration>
-			</plugin>
+			<!-- <plugin> -->
+			<!-- <groupId>org.apache.maven.plugins</groupId> -->
+			<!-- <artifactId>maven-compiler-plugin</artifactId> -->
+			<!-- <configuration> -->
+			<!-- <source>1.7</source> -->
+			<!-- <target>1.7</target> -->
+			<!-- </configuration> -->
+			<!-- </plugin> -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -106,7 +120,7 @@
 				<version>2.3</version>
 				<configuration>
 					<failOnMissingWebXml>false</failOnMissingWebXml>
-					<warName>RestEasy</warName>
+					<warName>EmpProjectTrackingTool</warName>
 				</configuration>
 			</plugin>
 			<plugin>

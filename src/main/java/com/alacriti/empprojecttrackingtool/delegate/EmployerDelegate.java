@@ -61,4 +61,10 @@ public class EmployerDelegate {
 		return employerBO.getProjectHistory(employerId);
 		
 	}
+	
+	
+	public List<EmployerVO> getEmployersToAssignBySkills(String empSkill) {
+		logger.info("In EmployerDelegates..");
+		return employerBO.getEmployersToAssignBySkills(empSkill);
+	}
 }

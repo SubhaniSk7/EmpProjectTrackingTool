@@ -91,4 +91,12 @@ public class EmployerResource {
 		return employerDelegate.getProjectHistory(employerId);
 	}
 //	
+	
+	@GET
+	@Path("/getempskills/{empSkill}")
+	public List<EmployerVO> getEmployersToAssignBySkills(@PathParam("empSkill") String empSkill) {
+
+		logger.info("In Get Employers to Assign by Skills.");
+		return employerDelegate.getEmployersToAssignBySkills(empSkill);
+	}
 }
